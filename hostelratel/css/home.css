@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #31363f;
+}
+.img-principal {
+    height: 47.5em;
+    width: 100%;
+    background-image: url(../img/beach_yoga_desktop.webp);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    margin-bottom: 3em;
+}
+.overlay {
+    background-color: rgba(17,17,17,.35);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:0;
+}
+.overlay:after {
+    content: "";
+    position: absolute;
+    height: 11.25em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg,transparent 0,#101010);
+}
+.overlay:before {
+    content: "";
+    position: absolute;
+    height: 5em;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(0deg,hsla(0,0%,100%,0),rgba(0,0,0,.7));
+}
+.container-home {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 70em;
+    padding-left: 1em;
+    padding-right: .5em;
+    width: 100%;
+}
+.container-home .grade-mosaico {
+    display: grid;
+}
+.container-home .grade-mosaico .card {
+    background-image: url(../img/1-_en-_hoscars.jfif);
+    min-height: 14em;
+    background-position: 50%;
+    background-size: cover;
+    width: 55%;
+    
+}
+.container-home .grade-mosaico .card2 {
+    background-image: url(../img/1-_en-_hoscars.jfif);
+    min-height: 14em;
+    background-position: 50%;
+    background-size: cover;
+    width: 40%;
+}
