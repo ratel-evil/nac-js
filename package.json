@@ -1,0 +1,21 @@
+{
+  "name": "nac-js",
+  "version": "1.0.0",
+  "description": "repositório de resolução da nac do professor Andrey Masiero da aula de Hybrid Mobile App Development da FIAP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx http-server -p 8080 -d "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratel-evil/nac-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ratel-evil/nac-js/issues"
+  },
+  "homepage": "https://github.com/ratel-evil/nac-js#readme"
+}

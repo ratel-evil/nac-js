@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <title>Hostel Ratel</title>
+</head>
+<body>
+    <div class="img-principal">
+        <div class="overlay"></div>
+    </div>
+    <div class="container-home">
+                <div>
+                    <input type="search" id="address" list="addresslist"  placeholder="address"/>
+                    <datalist id="addresslist">
+        
+                    </datalist>
+                </div>
+                <div>
+                    <input type="search" id="price" list="price"  placeholder="address"/>
+                    <datalist id="pricelist">
+        
+                    </datalist>
+                </div>
+                <div>
+                    <input type="search" id="usableArea" list="usableArealist" placeholder="address"/>
+                    <datalist id="usableArealist">
+        
+                    </datalist>
+                </div>
+                <div>
+                    <button onclick=""></button>
+                </div>
+        <div class="grade-mosaico">
+            <div class="card"></div>
+            <div class="card2"></div>
+            <div class="card2"></div>
+            <div class="card"></div>
+            <div class="card2"></div>
+        </div>
+    </div>
+    
+</body>
+<script src="./js/app/models/Apto.js"></script>
+<script src="./js/app/models/Filter.js"></script>
+<script src="./js/app/views/View.js"></script>
+<script src="./js/app/views/CardView.js"></script>
+<script src="./js/app/controllers/PesquisaController.js"></script>
+<script>
+    let pesquisarCtrl = new PesquisaController();
+</script>
+</html>
