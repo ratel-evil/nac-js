@@ -1,46 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="css/home.css">
     <title>Hostel Ratel</title>
 </head>
+
 <body>
     <div class="img-principal">
         <div class="overlay"></div>
+        <div class="form-overlay"></div>
+    </div>
+    <div>
+        <input type="search" id="address" list="addresslist"  placeholder="address"/>
+        <datalist id="addresslist">
+
+        </datalist>
+    </div>
+    <div>
+        <input type="search" id="price" list="price"  placeholder="address"/>
+        <datalist id="pricelist">
+
+        </datalist>
+    </div>
+    <div>
+        <input type="search" id="usableArea" list="usableArealist" placeholder="address"/>
+        <datalist id="usableArealist">
+
+        </datalist>
+    </div>
+    <div>
+        <button onclick=""></button>
     </div>
     <div class="container-home">
-                <div>
-                    <input type="search" id="address" list="addresslist"  placeholder="address"/>
-                    <datalist id="addresslist">
-        
-                    </datalist>
-                </div>
-                <div>
-                    <input type="search" id="price" list="price"  placeholder="address"/>
-                    <datalist id="pricelist">
-        
-                    </datalist>
-                </div>
-                <div>
-                    <input type="search" id="usableArea" list="usableArealist" placeholder="address"/>
-                    <datalist id="usableArealist">
-        
-                    </datalist>
-                </div>
-                <div>
-                    <button onclick=""></button>
-                </div>
-        <div class="grade-mosaico">
-            <div class="card"></div>
-            <div class="card2"></div>
-            <div class="card2"></div>
-            <div class="card"></div>
-            <div class="card2"></div>
+        <h1>MELHORE A SUA EXPERIÊNCIA DE VIAGEM</h1>
+        <p>E mais: Dicas que cabem no seu orçamento</p>
+        <div class="grid-container">
+            <div class="card2">
+                <a href="#">
+                    <!-- <div style="background-image:url('img/1-_en-_hoscars.jfif');"></div> -->
+                </a>
+            </div>
+            <div class="card3">right</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
         </div>
     </div>
-    
+    <div class="container-home">
+        <h1>DESTINOS IMPERDÍVEIS</h1>
+        <p>EDescubra hostels incríveis e conheça viajantes pelo mundo</p>
+        <div class="grid-container">
+            <div class="card2">wide</div>
+            <div class="card3">right</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+            <div class="card">square</div>
+        </div>
+    </div>
 </body>
 <script src="./js/app/models/Apto.js"></script>
 <script src="./js/app/models/Filter.js"></script>
