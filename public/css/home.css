@@ -2,13 +2,16 @@
     margin: 0;
     padding: 0;
     color: #f1f2f4;
-    font-family: Noto,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: Noto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
     word-spacing: .0625em;
 }
+
 body {
     background-color: #31363f;
 }
-.img-principal {
+
+
+/* .img-principal {
     height: 47.5em;
     width: 100%;
     background-image: url(../img/beach_yoga_desktop.webp);
@@ -16,16 +19,10 @@ body {
     background-size: 100%;
     position: relative;
     margin-bottom: 3em;
-}
-.overlay {
-    background-color: rgba(17,17,17,.35);
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom:0;
-}
+}*/
+
+
+/*
 .overlay:after {
     content: "";
     position: absolute;
@@ -43,7 +40,68 @@ body {
     left: 0;
     right: 0;
     background-image: linear-gradient(0deg,hsla(0,0%,100%,0),rgba(0,0,0,.7));
+} */
+.container-header > * {
+    position:relative;
 }
+.container-header {
+    background-image: url('../img/beach_yoga_desktop.webp');
+    position: relative;
+    width: 100%;
+    min-height: 47.5rem;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.overlay {
+    background: linear-gradient(
+        0deg, 
+        #101010fc 0%, 
+        rgba(0, 0, 0, .4) 15%, 
+        rgba(0, 0, 0, .4) 90%, 
+        rgba(0, 0, 0, .8) 100%);
+    height: 100%;
+    position: absolute ;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.arrow{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 100%;
+    left: 50%;
+    pointer-events: none;
+    border: 1.875rem solid rgba(0, 0, 0, 0);
+    background:transparent;
+    border-top-color: #101010;
+    margin-left: -1.875rem;
+}
+header.header {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "logo buttons";
+    margin:0 auto;
+    width: 70rem;
+    padding:1rem;
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.buttons {
+    grid-area: buttons;
+    justify-self: flex-end;
+    align-self:center;
+}
+
 .container-home {
     margin: 2em auto;
     text-align: center;
@@ -52,25 +110,45 @@ body {
     padding-right: .5em;
     width: 100%;
 }
+
 .container-home h1 {
     margin-bottom: 0.2em;
 }
+
 .container-home p {
     margin-bottom: 2em;
 }
+
 .container-home .grade-mosaico {
     display: grid;
 }
-.card, .card1, .card2, .card3, .card4 {
+
+.card,
+.card1,
+.card2,
+.card3,
+.card4 {
     background-image: url(../img/1-_en-_hoscars.jfif);
     min-height: 14em;
     background-position: 50%;
     background-size: cover;
 }
-.card1 {grid-area: left;}
-.card2 {grid-area: wide;}
-.card3 {grid-area: right;}
-.card4 {grid-area: square;}
+
+.card1 {
+    grid-area: left;
+}
+
+.card2 {
+    grid-area: wide;
+}
+
+.card3 {
+    grid-area: right;
+}
+
+.card4 {
+    grid-area: square;
+}
 
 .grid-container {
     display: grid;
@@ -78,17 +156,18 @@ body {
     grid-gap: 1px;
 }
 
-.grid-container > div {
+.grid-container>div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     margin: .25em;
 }
+
 .form-overlay {
     position: absolute;
     top: -.25rem;
     left: -.5rem;
     right: -.4375rem;
     bottom: 5.375rem;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
     border-radius: .25rem;
 }
