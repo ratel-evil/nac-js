@@ -22,16 +22,21 @@
 
         </header>
         <div class="filtros">
-            <input type="search" name="address" id="address" list="addressList"/>
+            <input type="search" name="address" id="address" list="addressList" onchange="pesquisaCtrl.filtrar(event)"/>
             <datalist id="addressList">
             </datalist>
                 
-            <input type="search" name="price" id="price" list="priceList"/>
+            <input type="search" name="price" id="price" list="priceList" onchange="pesquisaCtrl.filtrar(event)"/>
             <datalist id="priceList">
             </datalist>
 
-            <input type="search" name="usableArea" id="usableArea" list="usableAreaList">
+            <input type="search" name="usableArea" id="usableArea" list="usableAreaList" onchange="pesquisaCtrl.filtrar(event)">
             <datalist id="usableAreaList"></datalist>
+            <select name="maxValues" id="maxValues"  onchange="pesquisaCtrl.filtrar(event)">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+            </select>
         </div>
         <div class="arrow"></div>
     </div>
@@ -68,5 +73,10 @@
         </div>
     </div>
 </body>
+<script src="./js/app/models/Filter.js"></script>
+<script src="./js/app/controllers/PesquisaController.js"></script>
+<script>
+let pesquisaCtrl = new PesquisaController() 
+</script>
 
 </html>
