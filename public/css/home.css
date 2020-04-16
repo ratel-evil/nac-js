@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    /* color: #f1f2f4; */
     font-family: Noto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
     word-spacing: .0625em;
 }
@@ -10,66 +9,36 @@ body {
     background-color: #31363f;
 }
 
-
-/* .img-principal {
-    height: 47.5em;
-    width: 100%;
-    background-image: url(../img/beach_yoga_desktop.webp);
-    background-repeat: no-repeat;
-    background-size: 100%;
+.container-header>* {
     position: relative;
-    margin-bottom: 3em;
-}*/
-
-
-/*
-.overlay:after {
-    content: "";
-    position: absolute;
-    height: 11.25em;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(180deg,transparent 0,#101010);
 }
-.overlay:before {
-    content: "";
-    position: absolute;
-    height: 5em;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-image: linear-gradient(0deg,hsla(0,0%,100%,0),rgba(0,0,0,.7));
-} */
-.container-header > * {
-    position:relative;
-}
+
 .container-header {
     background-image: url('../img/beach_yoga_desktop.webp');
     position: relative;
     width: 100%;
-    min-height: 47.5rem;
-    background-position: top;
+    min-height: 22.5rem;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     z-index: 1;
+    display: flex;
+    align-items: initial;
+    align-items: center;
+    flex-direction: column;
 }
 
 .overlay {
-    background: linear-gradient(
-        0deg, 
-        #101010fc 0%, 
-        rgba(0, 0, 0, .4) 15%, 
-        rgba(0, 0, 0, .4) 90%, 
-        rgba(0, 0, 0, .8) 100%);
+    background: linear-gradient( 0deg, #101010fc 0%, rgba(0, 0, 0, .4) 15%, rgba(0, 0, 0, .4) 90%, rgba(0, 0, 0, .8) 100%);
     height: 100%;
-    position: absolute ;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
 }
-.arrow{
+
+.arrow {
     content: "";
     position: absolute;
     height: 0;
@@ -78,28 +47,36 @@ body {
     left: 50%;
     pointer-events: none;
     border: 1.875rem solid rgba(0, 0, 0, 0);
-    background:transparent;
+    background: transparent;
     border-top-color: #101010;
     margin-left: -1.875rem;
 }
+
 header.header {
+    display: flex;
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "logo buttons";
-    margin:0 auto;
-    width: 70rem;
-    padding:1rem;
+    justify-content: space-between;
+    width: 80%;
+    padding: 1rem;
+    height: 126px;
 }
 
 .logo {
+    display: flex;
+    position: relative;
     grid-area: logo;
+    background-image: url(./../img/logo3.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20%;
+    justify-items: center;
 }
 
 .buttons {
-    grid-area: buttons;
-    justify-self: flex-end;
-    align-self:center;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 50%;
 }
 
 .container-home {
@@ -172,83 +149,114 @@ header.header {
     border-radius: .25rem;
 }
 
-
-
 .filtros {
-    position:relative;
-    margin:0 auto;
-    width:75%;
+    position: relative;
+    margin: 0 auto;
+    width: 75%;
     display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1px 1px;
-  grid-template-areas: 
-  "addressFilter addressFilter" 
-  "priceFilter usableAreaFilter";
-  background-color: rgba(0, 0, 0, .5);
-  padding:5px 15px 15px 15px;
-  border-radius: 10px;
-
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "addressFilter addressFilter" "priceFilter usableAreaFilter";
+    background-color: rgba(0, 0, 0, .5);
+    padding: 5px 15px 15px 15px;
+    border-radius: 10px;
 }
-@media (min-width:1098px){
-    .filtros{
-        width:50%;    
+
+@media (min-width:1098px) {
+    .filtros {
+        width: 50%;
     }
 }
-.addressFilter { grid-area: addressFilter; display: flex;
-    align-items:center;}
 
+.addressFilter {
+    grid-area: addressFilter;
+    display: flex;
+    align-items: center;
+}
 
-.range-style:first-child{
+.range-style:first-child {
     margin-right: 5px;
 }
-.range-style:last-child{
+
+.range-style:last-child {
     margin-left: 5px;
 }
-.range-style{
-    padding:0 25px;
+
+.range-style {
+    padding: 0 25px;
     background-color: #fff;
     border-radius: 10px;
-    color:#808080;
+    color: #808080;
 }
-.priceFilter { 
+
+.priceFilter {
     grid-area: priceFilter;
-    
- }
-
-.usableAreaFilter { 
-    grid-area: usableAreaFilter; 
-    padding:0 25px;
 }
 
-
-
-#price{
-    padding:0 !important;
+.usableAreaFilter {
+    grid-area: usableAreaFilter;
+    padding: 0 25px;
 }
 
-.input-group:nth-child(2), .input-group:nth-child(3){
-    display:flex;
+#price {
+    padding: 0 !important;
+}
+
+.input-group:nth-child(2),
+.input-group:nth-child(3) {
+    display: flex;
     flex-direction: column;
 }
-.input-group:nth-child(2) > label,.input-group:nth-child(3) > label{
-    align-self:flex-start;
+
+.input-group:nth-child(2)>label,
+.input-group:nth-child(3)>label {
+    align-self: flex-start;
 }
 
-.addressFilter > input {
+.addressFilter>input {
     width: 95%;
     margin-right: 5px;
     padding: 6px 24px;
     font-size: 16px;
-    border-radius:10px;
-    border:1px solid #ccc;
-    outline:none;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
 }
-.addressFilter > select {
+
+.addressFilter>select {
     margin-right: 5px;
     padding: 6px 10px;
     font-size: 16px;
-    border-radius:10px;
-    border:1px solid #ccc;
-    outline:none;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    margin: 5px;
+    font-size: 22px;
+}
+
+.buttons a {
+    color: #fff;
+    opacity:0.5; 
+    text-decoration: none;
+    margin: 10px;
+}
+
+
+
+.buttons:hover a:hover {
+    opacity: 1;
+    transition: 0.5s;
+}
+.input-group > label {
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    align-items: baseline;
 }
