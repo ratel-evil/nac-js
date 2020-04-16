@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <title>Hostel Ratel</title>
+    
 </head>
 
 <body>
@@ -14,39 +15,58 @@
         <div class="overlay"></div>
         <header class="header">
             <div class="logo">
-                <h1>HOSTEL RATEL</h1>
             </div>
 
             <div class="buttons">
-                <p>botões fodas</p>
+                
+                    <a href="#">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+
+                    <a href="#">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-facebook-f"></i></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fab fa-twitter"></i>
+                    </a>
             </div>
 
         </header>
         <div class="filtros">
             <div class="input-group addressFilter">
                 <input type="search" name="address" id="address" list="addressList"
-                    onchange="pesquisaCtrl.filtrar(event)" placeholder="Rua .., Itaim Bibi - Sp"/>
-                    <select name="maxValues" id="maxValues" onchange="pesquisaCtrl.filtrar(event)">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                    </select>
+                    onchange="pesquisaCtrl.filtrar(event)" placeholder="Rua Bandeira Paulista, 594 Itaim Bibi - SP" />
+                <select name="maxValues" id="maxValues" oninput="pesquisaCtrl.filtrar(event)">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
                 <datalist id="addressList">
                 </datalist>
             </div>
 
             <div class="input-group priceFilter range-style">
-                <label for="price"> R$: <span id="priceLabel">0</span></label>
+                <label for="price"><span>R$: <span id="priceLabel">0</span></span> <input type="checkbox" id="applyPrice" onclick="pesquisaCtrl.handleCheck(event)" name="applyPrice" title="Aplicar Preço?"></label>
                 <input type="range" step="100" name="price" id="price" list="priceList"
-                    oninput="pesquisaCtrl.filtrar(event)" />
+                     oninput="pesquisaCtrl.filtrar(event)" />
                 <datalist id="priceList">
             </div>
             </datalist>
 
             <div class="input-group usableAreaFilter range-style">
-                <label for="usableArea"> m² <span id="usableAreaLabel">0</span></label>
+                <label for="usableArea"><span>m² <span id="usableAreaLabel">0</span></span> <input type="checkbox" name="applyUsableArea" id="applyUsableArea"  onclick="pesquisaCtrl.handleCheck(event)" title="Aplicar metro quadrado?"></label>
                 <input type="range" step="1" name="usableArea" id="usableArea" list="usableAreaList" 
-                    oninput="pesquisaCtrl.filtrar(event)">
+                   oninput="pesquisaCtrl.filtrar(event)">
                 <datalist id="usableAreaList"></datalist>
             </div>
         </div>
@@ -87,7 +107,8 @@
     </div>
 </body>
 
-
+<script src="https://kit.fontawesome.com/368533be5c.js" crossorigin="anonymous"></script>
+<script src="./js/app/helper/Helper.js"></script>
 <script src="./js/app/models/Api.js"></script>
 <script src="./js/app/models/Filter.js"></script>
 <script src="./js/app/controllers/PesquisaController.js"></script>
