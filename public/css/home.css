@@ -171,16 +171,84 @@ header.header {
     background-color: rgba(0, 0, 0, .5);
     border-radius: .25rem;
 }
-.filtros{
+
+
+
+.filtros {
     position:relative;
-    display: flex;
     margin:0 auto;
-    width:70rem;
-    justify-content: center;
-    align-items: center;
+    width:75%;
+    display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: 
+  "addressFilter addressFilter" 
+  "priceFilter usableAreaFilter";
+  background-color: rgba(0, 0, 0, .5);
+  padding:5px 15px 15px 15px;
+  border-radius: 10px;
+
+}
+@media (min-width:1098px){
+    .filtros{
+        width:50%;    
+    }
+}
+.addressFilter { grid-area: addressFilter; display: flex;
+    align-items:center;}
+
+
+.range-style:first-child{
+    margin-right: 5px;
+}
+.range-style:last-child{
+    margin-left: 5px;
+}
+.range-style{
+    padding:0 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    color:#808080;
+}
+.priceFilter { 
+    grid-area: priceFilter;
     
+ }
+
+.usableAreaFilter { 
+    grid-area: usableAreaFilter; 
+    padding:0 25px;
 }
 
-.filtros > *{
-    color:#000;
+
+
+#price{
+    padding:0 !important;
+}
+
+.input-group:nth-child(2), .input-group:nth-child(3){
+    display:flex;
+    flex-direction: column;
+}
+.input-group:nth-child(2) > label,.input-group:nth-child(3) > label{
+    align-self:flex-start;
+}
+
+.addressFilter > input {
+    width: 95%;
+    margin-right: 5px;
+    padding: 6px 24px;
+    font-size: 16px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
+}
+.addressFilter > select {
+    margin-right: 5px;
+    padding: 6px 10px;
+    font-size: 16px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    outline:none;
 }
