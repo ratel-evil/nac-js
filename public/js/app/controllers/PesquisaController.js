@@ -48,7 +48,7 @@ class PesquisaController {
         }
         console.table(maxApto)
         console.log(`filtros -> ${this._filter.address} + ${this._filter.price} + ${this._filter.usableArea}`)
-        //this._generateCards(arrayOfAptos)
+        //this._generateCards(maxApto)
         return maxApto
     }
 
