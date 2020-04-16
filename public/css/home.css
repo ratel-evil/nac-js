@@ -99,7 +99,7 @@ header.header {
 .container-home .grade-mosaico {
     display: grid;
 }
-
+/* 
 .card,
 .card1,
 .card2,
@@ -125,9 +125,9 @@ header.header {
 
 .card4 {
     grid-area: square;
-}
+} */
 
-.grid-container {
+/* .grid-container {
     display: grid;
     grid-template-areas: 'wide wide right';
     grid-gap: 1px;
@@ -137,8 +137,8 @@ header.header {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     margin: .25em;
-}
-
+} */
+/* 
 .form-overlay {
     position: absolute;
     top: -.25rem;
@@ -147,7 +147,7 @@ header.header {
     bottom: 5.375rem;
     background-color: rgba(0, 0, 0, .5);
     border-radius: .25rem;
-}
+} */
 
 .filtros {
     position: relative;

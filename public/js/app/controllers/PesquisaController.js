@@ -6,6 +6,7 @@ class PesquisaController {
         this._data = [];
         this.popularData();
         this._filter = new Filter();
+        this._cardController = new CardController();
     }
 
     get api() {
@@ -48,8 +49,7 @@ class PesquisaController {
         }
         console.table(maxApto)
         console.log(`filtros -> ${this._filter.address} + ${this._filter.price} + ${this._filter.usableArea}`)
-        //this._generateCards(maxApto)
-        return maxApto
+        this._cardController.generateCards(maxApto)
     }
 
     get data() {
@@ -76,8 +76,8 @@ class PesquisaController {
             this._filter.priceLabel.textContent = minPrice;
             this._filter.usableAreaLabel.textContent = minUsableArea;
             
-            this._filter.setPriceMinMaxAttrs(minPrice, this.getMax(this.data, 'price'))
-            this._filter.setUsableAreaMinMaxAttrs(minUsableArea, this.getMax(this.data, 'usableArea'));
+            this._filter.setPriceMinMaxAttrs(minPrice, Helper.getMax(this.data, 'price'))
+            this._filter.setUsableAreaMinMaxAttrs(minUsableArea, Helper.getMax(this.data, 'usableArea'));
         })
     }
 

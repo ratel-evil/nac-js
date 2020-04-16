@@ -14,7 +14,6 @@ class Filter {
 
         //this._pag = parseInt($('.pag .selected').textContent);
      
- 
             
     }
 
