@@ -4,7 +4,9 @@ class CardView extends View{
     }    
 
     _template(model){
-        return 
+        return `
+            <div class="card">é mole?</div>
+        `
     }
 
 }
