@@ -12,32 +12,38 @@ class PesquisaController {
         return this._api;
     }
 
-    changePriceLabel(price) {
-        const $ = document.querySelector.bind(document);
-        $('#priceLabel').textContent = price;
-    }
-
-    popularData() {
-        fetch(this.url).then(data => data.json()).then(data => {
-            this._data = data;
-            setPriceMinMaxAttrs(this.getMinPrice(data), this.getMaxPrice(data));
-        })
-    }
+   
     handleLabels(event) {
         this._filter[`${event.target.id}Label`].textContent = event.target.value
     }
-
+    handleCheck(event) {
+        this._filter[`${event.target.name}`] = event.target.checked
+    }
 
     filtrar(event) {
         this._filter[event.target.id] = event.target.value;
+
         event.target.type == "range" && this.handleLabels(event)
 
         let filteredApto = this._data.filter((e) => {
-            return ((this._filter.address && e.address.formattedAddress.search(new RegExp(`/${this._filter.address.value}/g`))) //||
-                //(this._filter.price && e.price <= this._filter.price) ||
-                //(this._filter.usableArea && e.usableArea <= usableArea)
-            )
+            let match = false;
+
+            if (this._filter.address !== "" && e.address.formattedAddress.search(new RegExp(`/${this._filter.address}/g`)))
+                match = true;
+
+            if(this._filter.applyPrice) 
+                match = match || this._filter.price >= e.price 
+            
+            if (this._filter.applyUsableArea) {
+                debugger
+                match = match || this._filter.usableArea === e.usableArea
+            }
+            
+
+            return match && e.publish;
         })
+
+        
 
         let arrayOfAptos = [];
 
@@ -59,16 +65,22 @@ class PesquisaController {
     }
 
     getMin(data, attr) {
-        return Math.min(...data.map(apto => apto[attr]))
+        let filteredData = data.filter(e => e.publish);
+        return Math.min(...filteredData.map(apto => apto[attr]))
     }
     getMax(data, attr) {
-        return Math.max(...data.map(apto => apto[attr]))
+        let filteredData = data.filter(e => e.publish);
+        return Math.max(...filteredData.map(apto => apto[attr]))
     }
     popularData() {
         fetch(this.url).then(data => data.json()).then(data => {
-            this._data = data;
-            this._filter.setPriceMinMaxAttrs(this.getMin(this.data, 'price'), this.getMax(this.data, 'price'))
-            this._filter.setUsableAreaMinMaxAttrs(this.getMin(this.data, 'usableArea'), this.getMax(this.data, 'usableArea'));
+            this._data = data.sort((a, b) => Helper.desc(a, b, 'price'));;
+            let minPrice = this.getMin(this.data, 'price');
+            let minUsableArea = this.getMin(this.data, 'usableArea');
+            this._filter.priceLabel.textContent = minPrice;
+            this._filter.usableAreaLabel.textContent = minUsableArea;
+            this._filter.setPriceMinMaxAttrs(minPrice, this.getMax(this.data, 'price'))
+            this._filter.setUsableAreaMinMaxAttrs(minUsableArea, this.getMax(this.data, 'usableArea'));
         })
     }
 
