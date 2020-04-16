@@ -17,19 +17,19 @@ xhr.addEventListener('load', function(){
     const imoveis = JSON.parse(resposta);
 
     imoveis.forEach(function (imovel){
-        const divCard = create('div');
-        divCard.className = 'card mb-3';
+      const divCard = create('div');
+      divCard.className = 'card mb-3';
 
-        const divRow = create('div');
-        divRow.className = 'row no-gutters'
+      const divRow = create('div');
+      divRow.className = 'row no-gutters'
 
-        const divCol4 = create('div');
-        divCol4.className = 'col-md-4';
+      const divCol4 = create('div');
+      divCol4.className = 'col-md-4';
         
 
-        const cardImg = create('img');
-        cardImg.className = 'card-img';
-        cardImg.src = imovel.images[0];
+      const cardImg = create('img');
+      cardImg.className = 'card-img';
+      cardImg.src = imovel.images[0];
        
        divCol4.appendChild(cardImg);
        divRow.appendChild(divCol4);
@@ -40,27 +40,51 @@ xhr.addEventListener('load', function(){
        const cardBody = create('div');
        cardBody.className = 'card-body';
 
-       const h5cardTitle = create('h5');
-       h5cardTitle.className = 'card-title';
-       h5cardTitle.textContent = imovel.address.formattedAddress;       
+       const h6cardTitle = create('h6');
+       h6cardTitle.className = 'card-title';
+       h6cardTitle.textContent = imovel.address.formattedAddress;    
+       
+       const ulCard = create('ul');
+       ulCard.className = 'list-group';
 
-       const cardText = create('p');
-       cardText.className = 'card-text';
+       const liCard = create('li');
+       liCard.className = 'list-group-item';
+
+       if(imovel.publish == false && !imovel.adress){
+        divCard.style.display = 'none';
+      }
+
+        if(imovel.price){
+          ulCard.appendChild(createNewEl('li', `R$: ${imovel.price.toLocaleString('pt-BR')}`,'list-group-item'));
+        }
+
+        if(imovel.bathrooms){
+          ulCard.appendChild(createNewEl('li', `banheiros: ${imovel.bedrooms}`, 'list-group-item'));
+        }
        
-       cardText.textContent = [
-                                  'WC: '                  + imovel.bathrooms         
-                                + ' Quartos: '            + imovel.bedrooms          
-                                + ' Vagas de Garagem:  '  + imovel.parkingSpaces     
-                                + ' Área útil: '          + imovel.usableArea        
-                                + ' R$: '                 + imovel.price.toFixed(2) 
-                              ];
-       
-       
-       cardBody.appendChild(h5cardTitle);
-       cardBody.appendChild(cardText);
+        if(imovel.parkingSpaces){
+          ulCard.appendChild(createNewEl('li', `Vaga de garagem: ${imovel.parkingSpaces}`, 'list-group-item'));
+        }
+
+        if(imovel.usableArea){
+          ulCard.appendChild(createNewEl('li', `Área útil: ${imovel.usableArea} m²`, 'list-group-item'));
+        }
+
+        const linkCard = create('a');
+        linkCard.className = 'btn btn-primary btn-lg active';
+        linkCard.setAttribute('href', `./descricao.html?id=${imovel.id}`);
+        linkCard.setAttribute('role', 'button');
+        linkCard.textContent = 'Saiba Mais...';
+        
+              
+        console.log(imovel);
+      
+       cardBody.appendChild(h6cardTitle);
        divCol8.appendChild(cardBody);
        divRow.appendChild(divCol8);
+       cardBody.appendChild(ulCard); 
        divCard.appendChild(divRow);
+       cardBody.appendChild(linkCard);
        card.appendChild(divCard);
 
     });
@@ -68,3 +92,12 @@ xhr.addEventListener('load', function(){
 });
 
 xhr.send();
+
+function createNewEl(el,textcontent,classname){
+  var el = document.createElement(el);
+  el.classList.add(classname)
+  el.textContent = textcontent
+  return el;
+}
+
+
