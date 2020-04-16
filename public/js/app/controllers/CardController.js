@@ -5,4 +5,9 @@ class CardController {
         this._cardView = new CardView($('#cardContainer'));
         
     }
+
+    render(aptos) {
+        
+
+    }
 }
