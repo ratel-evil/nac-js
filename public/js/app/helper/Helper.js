@@ -30,7 +30,7 @@ class Helper {
             return -1;
         }
         return 0;
-        // a must be equal to b
+        // a must be equal to  b
         return 0;
     }
 
