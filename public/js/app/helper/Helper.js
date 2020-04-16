@@ -34,4 +34,12 @@ class Helper {
         return 0;
     }
 
+    
+    static getMin(data, attr) {
+        return Math.min(...data.map(apto => apto[attr]))
+    }
+    static getMax(data, attr) {
+        return Math.max(...data.map(apto => apto[attr]))
+    }
+
 }

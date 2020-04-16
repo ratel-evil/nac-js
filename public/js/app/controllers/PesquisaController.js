@@ -61,24 +61,21 @@ class PesquisaController {
     get url() {
         return this._url;
     }
-
-    getMin(data, attr) {
-        let filteredData = data.filter(e => e.publish);
-        return Math.min(...filteredData.map(apto => apto[attr]))
-    }
-    getMax(data, attr) {
-        let filteredData = data.filter(e => e.publish);
-        return Math.max(...filteredData.map(apto => apto[attr]))
-    }
+    
+    
     popularData() {
         fetch(this.url).then(data => data.json()).then(data => {
-            this._data = data.sort((a, b) => Helper.desc(a, b, 'price')).filter(e => e.publish);
-            let minPrice = this.getMin(this.data, 'price');
-            let minUsableArea = this.getMin(this.data, 'usableArea');
+            let filteredData = data.filter(e => e.publish);
+            this._data = filteredData.sort((a, b) => Helper.desc(a, b, 'price'));
+
+            let minPrice = Helper.getMin(this.data, 'price');
+            let minUsableArea = Helper.getMin(this.data, 'usableArea');
+
             this._filter.price = minPrice;
             this._filter.usableArea = minUsableArea;
             this._filter.priceLabel.textContent = minPrice;
             this._filter.usableAreaLabel.textContent = minUsableArea;
+            
             this._filter.setPriceMinMaxAttrs(minPrice, this.getMax(this.data, 'price'))
             this._filter.setUsableAreaMinMaxAttrs(minUsableArea, this.getMax(this.data, 'usableArea'));
         })
