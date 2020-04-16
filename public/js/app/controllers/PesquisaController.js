@@ -30,13 +30,12 @@ class PesquisaController {
 
             if (this._filter.address !== "" && e.address.formattedAddress.search(new RegExp(`/${this._filter.address}/g`)))
                 match = true;
-
+            
             if(this._filter.applyPrice) 
-                match = match || this._filter.price >= e.price 
+                match = match && this._filter.price === e.price 
             
             if (this._filter.applyUsableArea) {
-                debugger
-                match = match || this._filter.usableArea === e.usableArea
+                match = match && this._filter.usableArea === e.usableArea
             }
             
 
@@ -51,6 +50,7 @@ class PesquisaController {
             arrayOfAptos[i] = filteredApto[i]
         }
         console.log(arrayOfAptos)
+        //this._generateCards(arrayOfAptos)
         return arrayOfAptos
     }
 
