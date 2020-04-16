@@ -58,7 +58,7 @@
             <div class="input-group priceFilter range-style">
                 <label for="price"><span>R$: <span id="priceLabel">0</span></span> <input type="checkbox" id="applyPrice" onclick="pesquisaCtrl.handleCheck(event)" name="applyPrice" title="Aplicar Preço?"></label>
                 <input type="range" step="100" name="price" id="price" list="priceList"
-                     oninput="pesquisaCtrl.filtrar(event)" />
+                oninput="pesquisaCtrl.handleLabels(event)"  onchange="pesquisaCtrl.filtrar(event)" />
                 <datalist id="priceList">
             </div>
             </datalist>
@@ -66,7 +66,7 @@
             <div class="input-group usableAreaFilter range-style">
                 <label for="usableArea"><span>m² <span id="usableAreaLabel">0</span></span> <input type="checkbox" name="applyUsableArea" id="applyUsableArea"  onclick="pesquisaCtrl.handleCheck(event)" title="Aplicar metro quadrado?"></label>
                 <input type="range" step="1" name="usableArea" id="usableArea" list="usableAreaList" 
-                   oninput="pesquisaCtrl.filtrar(event)">
+                   oninput="pesquisaCtrl.handleLabels(event)" onchange="pesquisaCtrl.filtrar(event)">
                 <datalist id="usableAreaList"></datalist>
             </div>
         </div>

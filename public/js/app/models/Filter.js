@@ -43,7 +43,7 @@ class Filter {
     }
     
     set usableArea(utilArea) {
-        this._utilArea = utilArea;
+        this._usableArea = utilArea;
     }
 
     set maxValues(maxValues) {

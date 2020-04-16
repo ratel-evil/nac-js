@@ -12,46 +12,44 @@ class PesquisaController {
         return this._api;
     }
 
-   
+
     handleLabels(event) {
         this._filter[`${event.target.id}Label`].textContent = event.target.value
     }
     handleCheck(event) {
         this._filter[`${event.target.name}`] = event.target.checked
+        this.filtrar(null)
     }
 
     filtrar(event) {
-        this._filter[event.target.id] = event.target.value;
+        if (event) {
+            this._filter[event.target.id] = event.target.value;
+            event.target.type == "range" && this.handleLabels(event)
+        }
 
-        event.target.type == "range" && this.handleLabels(event)
+        let aptos = []
+        if (this._filter.address !== "")
+            aptos = this._data.filter((e) => e.address.formattedAddress.search(new RegExp(`/${this._filter.address}/g`)))
+        else
+            aptos = this._data;
 
-        let filteredApto = this._data.filter((e) => {
-            let match = false;
 
-            if (this._filter.address !== "" && e.address.formattedAddress.search(new RegExp(`/${this._filter.address}/g`)))
-                match = true;
-            
-            if(this._filter.applyPrice) 
-                match = match && this._filter.price === e.price 
-            
-            if (this._filter.applyUsableArea) {
-                match = match && this._filter.usableArea === e.usableArea
-            }
-            
+        if (this._filter.applyPrice)
+            aptos = aptos.filter(e => e.price <= this._filter.price)
 
-            return match && e.publish;
-        })
+        if (this._filter.applyUsableArea)
+            aptos = aptos.filter(e => e.usableArea <= this._filter.usableArea)
 
-        
 
-        let arrayOfAptos = [];
+        let maxApto = [];
 
         for (let i = 0; i < this._filter.maxValues; i++) {
-            arrayOfAptos[i] = filteredApto[i]
+            maxApto[i] = aptos[i]
         }
-        console.log(arrayOfAptos)
+        console.table(maxApto)
+        console.log(`filtros -> ${this._filter.address} + ${this._filter.price} + ${this._filter.usableArea}`)
         //this._generateCards(arrayOfAptos)
-        return arrayOfAptos
+        return maxApto
     }
 
     get data() {
@@ -74,9 +72,11 @@ class PesquisaController {
     }
     popularData() {
         fetch(this.url).then(data => data.json()).then(data => {
-            this._data = data.sort((a, b) => Helper.desc(a, b, 'price'));;
+            this._data = data.sort((a, b) => Helper.desc(a, b, 'price')).filter(e => e.publish);
             let minPrice = this.getMin(this.data, 'price');
             let minUsableArea = this.getMin(this.data, 'usableArea');
+            this._filter.price = minPrice;
+            this._filter.usableArea = minUsableArea;
             this._filter.priceLabel.textContent = minPrice;
             this._filter.usableAreaLabel.textContent = minUsableArea;
             this._filter.setPriceMinMaxAttrs(minPrice, this.getMax(this.data, 'price'))
