@@ -17,6 +17,7 @@
 </head>
 
 <body>
+    
     <div class="container-header">
         <div class="overlay"></div>
         <header class="header">
@@ -25,34 +26,13 @@
 
             <div class="buttons">
                 
-                    <a href="#">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-
-
-                    <a href="#">
-                        <i class="fab fa-github"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fab fa-facebook-f"></i></i>
-                    </a>
-
-                    <a href="#">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-            </div>
-
+                    
         </header>
         <div class="filtros">
             <div class="input-group addressFilter">
-                <input type="search" name="address" id="address" list="addressList"
+                <input class="form-control" type="search" name="address" id="address" list="addressList"
                     onchange="pesquisaCtrl.filtrar(event)" placeholder="Rua Bandeira Paulista, 594 Itaim Bibi - SP" />
-                <select name="maxValues" id="maxValues" oninput="pesquisaCtrl.filtrar(event)">
+                <select class="form-control" name="maxValues" id="maxValues" oninput="pesquisaCtrl.filtrar(event)">
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
@@ -71,21 +51,28 @@
 
             <div class="input-group usableAreaFilter range-style">
                 <label for="usableArea"><span>m² <span id="usableAreaLabel">0</span></span> <input type="checkbox" name="applyUsableArea" id="applyUsableArea"  onclick="pesquisaCtrl.handleCheck(event)" title="Aplicar metro quadrado?"></label>
-                <input type="range" step="1" name="usableArea" id="usableArea" list="usableAreaList" 
+                <input  type="range" step="1" name="usableArea" id="usableArea" list="usableAreaList" 
                    oninput="pesquisaCtrl.handleLabels(event)" onchange="pesquisaCtrl.filtrar(event)">
                 <datalist id="usableAreaList"></datalist>
             </div>
         </div>
         <div class="arrow"></div>
     </div>
-    <div class="container-home">
-        <h1>MELHORE A SUA EXPERIÊNCIA DE VIAGEM</h1>
-        <p>E mais: Dicas que cabem no seu orçamento</p>
-
-        <div id="cardContainer" class="grid-container">
-            
+ 
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1>MELHORE A SUA EXPERIÊNCIA DE VIAGEM</h1>
+             <p>E mais: Dicas que cabem no seu orçamento</p>
+          </div>
+          <div class="col-12">
+            <div id="cardContainer" class="grid-container"></div>
+          </div>
         </div>
-    </div>
+      </div>
+
+      
+
 </body>
 <script src="https://kit.fontawesome.com/368533be5c.js" crossorigin="anonymous"></script>
 <script src="./js/app/helper/Helper.js"></script>
@@ -96,6 +83,10 @@
 <script src="./js/app/views/CardView.js"></script>
 <script src="./js/app/controllers/CardController.js"></script>
 <script src="./js/app/controllers/PesquisaController.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script>
     let pesquisaCtrl = new PesquisaController() 
