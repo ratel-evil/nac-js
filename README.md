@@ -5,7 +5,7 @@
 <li> caso a porta <strong>8080</strong> já esteja em uso rode o comando  <code>npx http-server -p [port]</code></li>
 </ol>
 <h2>Capa</h2>
-![capa](https://github.com/ratel-evil/nac-js/blob/master/capa.PNG "Capa")
+<img src="https://github.com/ratel-evil/nac-js/blob/master/capa.PNG" title="Capa">
 
 
 <hr>
