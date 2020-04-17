@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #31363f;
+    background-color: #E6E4E0;
 }
 
 .description {
@@ -17,20 +17,66 @@ body {
     grid-template-rows: 1fr 1fr;
     grid-template-areas: "side mapa" "side mapa";
 }
-.side{
-    grid-area:side;
-    display:flex;
+
+.side {
+    padding:8px;
+    z-index:2;
+    grid-area: side;
+    display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
+    -webkit-box-shadow: 14px 0px 53px -6px rgba(0, 0, 0, 0.76);
+    -moz-box-shadow: 14px 0px 53px -6px rgba(0, 0, 0, 0.76);
+    box-shadow: 14px 0px 53px -6px rgba(0, 0, 0, 0.76);
 }
 
-
 .mapa {
+    z-index:1;
     grid-area: mapa;
 }
 
 #map {
-    margin:auto auto;
+    margin: auto auto;
     width: 100%;
     height: 100%;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group-item+.list-group-item {
+    border-top-width: 0;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 0.75rem 1.25rem;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 50px;
+    max-resolution: left 10px;
 }
