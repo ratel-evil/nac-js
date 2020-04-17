@@ -16,9 +16,7 @@
 <body>
     <div class="description">
         <div class="side">
-            <div class="legend">
-
-            </div>
+            
             <div class="images">
 
 
@@ -46,6 +44,25 @@
 
             </div>
 
+            <div class="legend">
+                <ul>
+                    <li>
+                        R$: 1000000
+                    </li>
+                    <li>
+                        Banheiros: 2
+                    </li>
+                    <li>
+                        Quartos: 1 
+                    </li>
+                    <li>
+                        Vagas: 2
+                    </li>
+                    <li>
+                        M²: 70
+                    </li>
+                </ul>
+            </div>
         </div>
 
 
@@ -67,14 +84,14 @@
     crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
     integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">0</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
 <script>
     var cities = L.layerGroup();
 
-    L.marker([39.61, -105.02]).bindPopup('HostelRatel').addTo(cities)
+    L.marker([-23.58313, -46.67611]).bindPopup('Rua Bandeira Paulista, 594 Itaim Bibi - SP').addTo(cities)
 
     var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
         '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -85,13 +102,12 @@
         streets = L.tileLayer(mbUrl, { id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr });
 
     var map = L.map('map', {
-        center: [-23.58313,, -46.67611],
+        center: [-23.58313, -46.67611],
         zoom: 15,
-        layers: [grayscale, cities]
+        layers: [streets, cities]
     });
 
     var baseLayers = {
-        "Grayscale": grayscale,
         "Streets": streets
     };
 
