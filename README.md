@@ -15,7 +15,7 @@ Resolução da nac do professor Andrey Masiero da aula de Hybrid Mobile App Deve
     </tr>
     <tr>
       <td>BRENO SAPUCAIA</td>
-      <td>#</td>
+      <td>83958</td>
     </tr>
     <tr>
       <td>CRYSLAN CORREIA VIANA</td>
