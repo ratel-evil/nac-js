@@ -1,11 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>teste</title>
+    <!-- <link rel="stylesheet" href="css/cardsCSS/bootstrap.css">
+    <link rel="stylesheet" href="css/cardsCSS/bootstrap-grid.css.map">
+    <link rel="stylesheet" href="css/cardsCSS/bootstrap-reboot.css">
+    <link rel="stylesheet" href="css/cardsCSS/bootstrap-reboot.css.map">-->
+    <link rel="stylesheet" href="css/cardsCSS/bootstrap.min.css">
+    <link rel="stylesheet" href="css/description/description.css">
+    <title>Descrição Hotel</title>
 </head>
+
 <body>
-    <h1>teste</h1>
+    <div class="description">
+        <div class="side">
+            <div class="legend">
+
+            </div>
+            <div class="images">
+
+
+                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-interval="3000">
+                            <img src="https://i.imgur.com/ad0cUuB.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-interval="3000">
+                            <img src="https://i.imgur.com/JMcV63z.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item" data-interval="3000">
+                            <img src="https://i.imgur.com/XAGtg4a.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="mapa">
+            <div id='map'></div>
+        </div>
+
+    </div>
+
+
 </body>
+
+
+<link rel="stylesheet" href="./js/app/leaflet/leaflet.css" />
+<script src="./js/app/leaflet/leaflet.js"></script>
+<script src="https://kit.fontawesome.com/368533be5c.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+<script>
+    var cities = L.layerGroup();
+
+    L.marker([39.61, -105.02]).bindPopup('HostelRatel').addTo(cities)
+
+    var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+    var grayscale = L.tileLayer(mbUrl, { id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr }),
+        streets = L.tileLayer(mbUrl, { id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr });
+
+    var map = L.map('map', {
+        center: [-23.58313,, -46.67611],
+        zoom: 15,
+        layers: [grayscale, cities]
+    });
+
+    var baseLayers = {
+        "Grayscale": grayscale,
+        "Streets": streets
+    };
+
+    var overlays = {
+        "Cities": cities
+    };
+
+    L.control.layers(baseLayers, overlays).addTo(map);
+</script>
+
 </html>

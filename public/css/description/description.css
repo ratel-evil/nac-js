@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Noto, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Helvetica, Arial, sans-serif;
+    word-spacing: .0625em;
+}
+
+body {
+    background-color: #31363f;
+}
+
+.description {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "side mapa" "side mapa";
+}
+.side{
+    grid-area:side;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+
+.mapa {
+    grid-area: mapa;
+}
+
+#map {
+    margin:auto auto;
+    width: 100%;
+    height: 100%;
+}
