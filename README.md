@@ -1,7 +1,9 @@
-﻿<h1>Executar o projeto</h1>
+﻿<h1>Executar o projeto </h1>
+
 <ol>
+<li>Tenha o node baixado </li>
 <li> clone o repositório</li>
-<li> na raiz do projeto digite <code> npm start </code>
+<li> na raiz do projeto execute o comando no bash <code> npm start </code>
 <li> caso a porta <strong>8080</strong> já esteja em uso rode o comando  <code>npx http-server -p [port]</code></li>
 </ol>
 <h2>Landing Page</h2>
