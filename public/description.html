@@ -10,73 +10,16 @@
     <link rel="stylesheet" href="css/cardsCSS/bootstrap-reboot.css.map">-->
     <link rel="stylesheet" href="css/cardsCSS/bootstrap.min.css">
     <link rel="stylesheet" href="css/description/description.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./js/app/leaflet/leaflet.css" />
     <title>Descrição Hotel</title>
 </head>
 
 <body>
-    <div class="description">
-        <div class="side">
-            
-            <div class="images">
-
-
-                <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-interval="3000">
-                            <img src="https://i.imgur.com/ad0cUuB.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item" data-interval="3000">
-                            <img src="https://i.imgur.com/JMcV63z.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item" data-interval="3000">
-                            <img src="https://i.imgur.com/XAGtg4a.jpg" class="d-block w-100" alt="...">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="legend">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        R$: 1000000
-                    </li>
-                    <li class="list-group-item">
-                        Banheiros: 2
-                    </li>
-                    <li class="list-group-item">
-                        Quartos: 1 
-                    </li>
-                    <li class="list-group-item">
-                        Vagas: 2
-                    </li>
-                    <li class="list-group-item">
-                        M²: 70
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-
-        <div class="mapa">
-            <div id='map'></div>
-        </div>
-
-    </div>
-
-
 </body>
 
 
-<link rel="stylesheet" href="./js/app/leaflet/leaflet.css" />
+
 <script src="./js/app/leaflet/leaflet.js"></script>
 <script src="https://kit.fontawesome.com/368533be5c.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -88,8 +31,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
+<script src="js/app/helper/Helper.js"></script>
+<script src="js/app/models/Room.js"></script>
+<script src="js/app/views/View.js"></script>
+<script src="js/app/views/RoomView.js"></script>
 <script src="js/app/controllers/RoomController.js">
-let roomCtrl = new RoomController();
+</script>
+<script>
+    let roomController = new RoomController();
 </script>
 
 </html>
