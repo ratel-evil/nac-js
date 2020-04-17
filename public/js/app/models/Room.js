@@ -28,14 +28,13 @@
 
 class Room {
     constructor(id, price, bathrooms, bedrooms, parkingSpace,
-        usableArea, publish, address, images){
+        usableArea, publish, parkingSpaces, address, images){
         this._id = id;
         this._price = price;
         this._bathrooms = bathrooms; 
         this._bedrooms = bedrooms;
-        this._parkingSpaces = parkingSpace;
-        this._usableArea = usableArea; 
-        this._publish = publish;
+        this._parkingSpaces = parkingSpaces;
+        this._usableArea = usableArea;
         this._address = address;
         this._images = images; 
               
