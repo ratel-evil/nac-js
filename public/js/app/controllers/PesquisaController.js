@@ -1,11 +1,9 @@
 class PesquisaController {
     constructor() {
-        const $ = document.querySelector.bind(document);
-        this._datalist = $('datalist');
         this._url = "http://www.mocky.io/v2/5e8bbc982f00006d0088c4ed";
         this._data = [];
-        this.popularData();
         this._filter = new Filter();
+        this.popularData();
         this._cardController = new CardController();
     }
 
@@ -17,10 +15,6 @@ class PesquisaController {
     handleLabels(event) {
         this._filter[`${event.target.id}Label`].textContent = event.target.value
     }
-    handleCheck(event) {
-        this._filter[`${event.target.name}`] = event.target.checked
-        this.filtrar(null)
-    }
 
     filtrar(event) {
         if (event) {
@@ -28,27 +22,36 @@ class PesquisaController {
             event.target.type == "range" && this.handleLabels(event)
         }
 
-        let aptos = []
-        if (this._filter.address !== "")
-            aptos = this._data.filter((e) => e.address.formattedAddress.search(new RegExp(`/${this._filter.address}/g`)))
-        else
-            aptos = this._data;
-
-
-        if (this._filter.applyPrice)
+        let aptos = this._data;
+        
+        
+        
+        if (this._filter.price > 0)
             aptos = aptos.filter(e => e.price <= this._filter.price)
-
-        if (this._filter.applyUsableArea)
+        
+        if (this._filter.usableArea > 0)
             aptos = aptos.filter(e => e.usableArea <= this._filter.usableArea)
+        
+        
+        if (this._filter.address)
+            aptos = aptos.filter((e) => {
+                
+                if (e.address.formattedAddress.toUpperCase().search(new RegExp(`\W*(${this._filter.address.toUpperCase()})\W*`)) >= 0) {
+                    return e;
+                }
+                else {
+                    return null;
+                }
+            }); 
 
-
+        aptos = aptos.filter(e => !(e === null));
         let maxApto = [];
 
         for (let i = 0; i < this._filter.maxValues; i++) {
             maxApto[i] = aptos[i]
         }
-        console.table(maxApto)
-        console.log(`filtros -> ${this._filter.address} + ${this._filter.price} + ${this._filter.usableArea}`)
+        //console.table(maxApto)
+        //console.log(`filtros -> ${this._filter.address} + ${this._filter.price} + ${this._filter.usableArea}`)
         this._cardController.generateCards(maxApto)
     }
 
@@ -65,7 +68,10 @@ class PesquisaController {
     
     popularData() {
         fetch(this.url).then(data => data.json()).then(data => {
-            let filteredData = data.filter(e => e.publish);
+            let firstFilteredData = data.filter(e => e.publish);
+            
+            let filteredData = firstFilteredData.filter(e => !(e.address.formattedAddress.includes('Desconhecido')))
+
             this._data = filteredData.sort((a, b) => Helper.desc(a, b, 'price'));
 
             let minPrice = Helper.getMin(this.data, 'price');
@@ -76,8 +82,8 @@ class PesquisaController {
             this._filter.priceLabel.textContent = minPrice;
             this._filter.usableAreaLabel.textContent = minUsableArea;
             
-            this._filter.setPriceMinMaxAttrs(minPrice, Helper.getMax(this.data, 'price'))
-            this._filter.setUsableAreaMinMaxAttrs(minUsableArea, Helper.getMax(this.data, 'usableArea'));
+            this._filter.setElementMinMaxAttrs(minPrice, Helper.getMax(this.data, 'price'),'priceElement')
+            this._filter.setElementMinMaxAttrs(minUsableArea, Helper.getMax(this.data, 'usableArea'), 'usableAreaElemnt');
         })
     }
 

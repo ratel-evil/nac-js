@@ -1,0 +1,6 @@
+.card .row > div:first-child {
+    margin:auto auto;
+}
+.card-body{
+    padding: 1.25rem 1.25rem 0px 1.25rem;
+}

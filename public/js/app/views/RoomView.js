@@ -1,22 +1,21 @@
 class RoomView extends View {
-    constructor(el) {
-        super(el)
+    constructor(elemento) {
+        super(elemento)
     }
 
     _template(model) {
         let { price, bedrooms, bathrooms, usableArea, parkingSpaces, images } = model;
-        let { formatedAddress } = model.address;
+        let  formattedAddress = model.address.formattedAddress
         return `
         <div class="description">
         <div class="side">
             
             <div class="images">
 
-
                 <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        ${images.map(src => `
-                        <div class="carousel-item active" data-interval="3000">
+                        ${images.map((src,index) => `
+                        <div class="carousel-item ${index === 0 ? 'active' : ''}" data-interval="3000">
                             <img src="${src}" class="d-block w-100" alt="...">
                         </div>
                         `).join('')}
@@ -36,7 +35,7 @@ class RoomView extends View {
             <div class="legend">
                 <ul class="list-group">
                 <li class="list-group-item">
-                        R$: ${formatedAddress}
+                    Logr: ${formattedAddress}
                 </li>    
                 <li class="list-group-item">
                         R$: ${price}
@@ -55,17 +54,18 @@ class RoomView extends View {
                     </li>
                 </ul>
             </div>
+            <div class="buttons">
+                <a href="index.html" class="btn btn-secondary">Voltar</a>
+                <a href="#" class="btn btn-success">Alugar</a>
+            </div>
         </div>
-
+        
 
         <div class="mapa">
-            <div id='map'></div>
+            <div id="map"></div>
         </div>
 
-    </div>
-        
-        
-        `
+    </div>`
 
 
     }

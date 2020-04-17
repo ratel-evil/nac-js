@@ -27,8 +27,8 @@
 
 
 class Room {
-    constructor(id, price, bathrooms, bedrooms, parkingSpace,
-        usableArea, publish, parkingSpaces, address, images){
+    constructor(id, price, bathrooms, bedrooms,
+        usableArea, parkingSpaces, address, images){
         this._id = id;
         this._price = price;
         this._bathrooms = bathrooms; 
@@ -80,14 +80,6 @@ class Room {
         this._usableArea =  newUsableArea;
     }
 
-    get publish(){
-        return this._publish; 
-    }
-
-    set publish(newPublish){
-        this._publish = newPublish; 
-    }
-
     get address(){
         return this._address; 
     }
@@ -104,4 +96,7 @@ class Room {
         this._images = newImages;
     } 
 
+    get bedrooms() {
+        return this._bedrooms;
+    }
 }

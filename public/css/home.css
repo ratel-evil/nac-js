@@ -163,7 +163,7 @@ header.header {
     gap: 1px 1px;
     grid-template-areas: "addressFilter addressFilter" "priceFilter usableAreaFilter";
     background-color: rgba(0, 0, 0, .5);
-    padding: 5px 15px 15px 15px;
+    padding: 15px 15px 15px 15px;
     border-radius: 10px;
 }
 

@@ -28,10 +28,5 @@ class CardController {
         })
         model = model.filter(apto => apto != null);
         this._cardView.update(model);
-            
-            
-        
-
-
     }
 }

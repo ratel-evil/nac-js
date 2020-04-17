@@ -30,30 +30,27 @@
         </header>
         <div class="filtros">
             <div class="input-group addressFilter">
-                <input class="form-control" type="search" name="address" id="address" list="addressList"
+                <input type="search" name="address" id="address" list="addressList"
                     onchange="pesquisaCtrl.filtrar(event)" placeholder="Rua Bandeira Paulista, 594 Itaim Bibi - SP" />
-                <select class="form-control" name="maxValues" id="maxValues" oninput="pesquisaCtrl.filtrar(event)">
+                <select name="maxValues" id="maxValues" oninput="pesquisaCtrl.filtrar(event)">
                     <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
                 </select>
-                <datalist id="addressList">
-                </datalist>
             </div>
 
             <div class="input-group priceFilter range-style">
-                <label for="price"><span>R$: <span id="priceLabel">0</span></span> <input type="checkbox" id="applyPrice" onclick="pesquisaCtrl.handleCheck(event)" name="applyPrice" title="Aplicar Preço?"></label>
+                <label for="price"><span>R$: <span id="priceLabel">0</span></span></label>
                 <input type="range" step="100" name="price" id="price" list="priceList"
                 oninput="pesquisaCtrl.handleLabels(event)"  onchange="pesquisaCtrl.filtrar(event)" />
-                <datalist id="priceList">
+                
             </div>
-            </datalist>
+            
 
             <div class="input-group usableAreaFilter range-style">
-                <label for="usableArea"><span>m² <span id="usableAreaLabel">0</span></span> <input type="checkbox" name="applyUsableArea" id="applyUsableArea"  onclick="pesquisaCtrl.handleCheck(event)" title="Aplicar metro quadrado?"></label>
+                <label for="usableArea"><span>m² <span id="usableAreaLabel">0</span></span> </label>
                 <input  type="range" step="1" name="usableArea" id="usableArea" list="usableAreaList" 
                    oninput="pesquisaCtrl.handleLabels(event)" onchange="pesquisaCtrl.filtrar(event)">
-                <datalist id="usableAreaList"></datalist>
             </div>
         </div>
         <div class="arrow"></div>
@@ -62,11 +59,13 @@
     <div class="container">
         <div class="row">
           <div class="col">
-            <h1>MELHORE A SUA EXPERIÊNCIA DE VIAGEM</h1>
-             <p>E mais: Dicas que cabem no seu orçamento</p>
+            <h1>Reinvente seu jeito de morar</h1>
+             <p>Alugue ou compre seu imóvel sem drama</p>
           </div>
           <div class="col-12">
-            <div id="cardContainer" class="grid-container"></div>
+            <div id="cardContainer" class="grid-container">
+                
+            </div>
           </div>
         </div>
       </div>
@@ -90,6 +89,7 @@
 
 <script>
     let pesquisaCtrl = new PesquisaController() 
+    setTimeout(() =>pesquisaCtrl.filtrar(null) ,1000)
 </script>
 
 </html>
