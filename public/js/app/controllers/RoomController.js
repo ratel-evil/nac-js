@@ -1,7 +1,7 @@
 class RoomController {
     constructor() {
         const $ = document.querySelector.bind(document);
-        this._url = "http://www.mocky.io/v2/5e8bbc982f00006d0088c4ed";
+        this._url = "https://www.mocky.io/v2/5e8bbc982f00006d0088c4ed";
         this._data = [];
         this.getData();
         this._roomView = new RoomView($('body'))
@@ -16,7 +16,7 @@ class RoomController {
 
     getData() {
         let id = window.location.search.split("id=")[1];
-        fetch(this.url, { headers: new Headers().set("Content-Security-Policy", "upgrade-insecure-requests") } )
+        fetch(this.url)
             .then(response => response.json())
             .then(payload => {
                 let room = payload.filter(room => room.id == id).pop();

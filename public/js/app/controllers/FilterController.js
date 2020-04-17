@@ -1,6 +1,6 @@
 class FilterController {
     constructor() {
-        this._url = "http://www.mocky.io/v2/5e8bbc982f00006d0088c4ed";
+        this._url = "https://www.mocky.io/v2/5e8bbc982f00006d0088c4ed";
         this._data = [];
         this._filter = new Filter();
         this.popularData();
@@ -67,7 +67,7 @@ class FilterController {
     
     
     popularData() {
-        fetch(this.url, {headers : new Headers().set("Content-Security-Policy", "upgrade-insecure-requests") }).then(data => data.json()).then(data => {
+        fetch(this.url).then(data => data.json()).then(data => {
             let firstFilteredData = data.filter(e => e.publish);
             
             let filteredData = firstFilteredData.filter(e => !(e.address.formattedAddress.includes('Desconhecido')))
