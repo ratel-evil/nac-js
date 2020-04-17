@@ -1,13 +1,14 @@
-﻿![capa](https://github.com/ratel-evil/nac-js/blob/master/capa.PNG)
-Resolução da nac do professor Andrey Masiero da aula de Hybrid Mobile App Development da FIAP
-<hr/>
-<h1>Executar o projeto</h1>
+﻿<h1>Executar o projeto</h1>
 <ol>
 <li> clone o repositório</li>
 <li> na raiz do projeto digite <code> npm start </code>
 <li> caso a porta <strong>8080</strong> já esteja em uso rode o comando  <code>npx http-server -p [port]</code></li>
 </ol>
+
+
+
 <hr/>
+<h2> Integrantes </h2>
 <table>
   <th><b>RM</b></th>
   <th><b>Nome</b></th>
@@ -38,3 +39,4 @@ Resolução da nac do professor Andrey Masiero da aula de Hybrid Mobile App Deve
     </tr>
   </tbody>
 </table>
+![capa](https://github.com/ratel-evil/nac-js/blob/master/capa.PNG)
