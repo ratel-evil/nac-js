@@ -14,17 +14,19 @@ class CardView extends View{
                     <div class="card-body">
                     <h6 id="titleAdress" class="card-title">${model.address}</h6>
                     <ul class="list-group">
-                        <li id="liPrice"             class="list-group-item">${model.price}</li>
-                        <li id="liBedrooms"          class="list-group-item">${model.bedrooms}</li>
-                        <li id="liParkingSpaces"     class="list-group-item">${model.parkingSpaces}</li>
-                        <li id="liUsableArea"        class="list-group-item">${model.usableArea} m²</li>
-                        <li id="liBathrooms"         class="list-group-item">${model.bathrooms}</li>
+                        <li class="list-group-item">R$: ${model.price}</li>
+                        <li class="list-group-item">quartos: ${model.bedrooms}</li>
+                        <li class="list-group-item">vagas de garagem: ${model.parkingSpaces}</li>
+                        <li class="list-group-item">área útil: ${model.usableArea} m²</li>
+                        <li class="list-group-item">banheiro: ${model.bathrooms}</li>
                     </ul>
-                    <a id="btnCard" class="btn btn-primary" href="./description.html?id=${model.id}" role="button">Saiba mais...</a>
+                    <a id="btnCard" class="btn btn-primary btn-lg btn-block" href="./description.html?id=${model.id}" role="button">Saiba mais...</a>
+
                     </div>
                 </div>
                 </div>
             </div>
+           
         `)
         }
         ).join('')

@@ -1,9 +1,9 @@
 class Card {
     constructor(id,arrayImg, formatAddress, price, bedrooms, bathrooms, usableArea, parkingSpaces){
         const $ = document.querySelector.bind(document);
-        this._id                = id
-        this._images         = arrayImg;
-        this._address       = formatAddress;
+        this._id              = id
+        this._images          = arrayImg;
+        this._address         = formatAddress;
         this._price           = price;
         this._bedrooms        = bedrooms;
         this._parkingSpaces   = bathrooms;

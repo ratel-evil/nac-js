@@ -9,6 +9,10 @@ body {
     background-color: #31363f;
 }
 
+#btnCard{
+    margin-top: 10px;
+}
+
 .container-header>* {
     position: relative;
 }
