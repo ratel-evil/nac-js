@@ -4,8 +4,8 @@ Resolução da nac do professor Andrey Masiero da aula de Hybrid Mobile App Deve
 <h1>Executar o projeto</h1>
 <ol>
 <li> clone o repositório</li>
-<li> na raiz do projeto digite <pre><code> npm start </code></pre>
-<li> caso a porta <strong>8080</strong> já esteja em uso rode o comando npx http-server -p <code><port> </code></li>
+<li> na raiz do projeto digite <code> npm start </code>
+<li> caso a porta <strong>8080</strong> já esteja em uso rode o comando  <code>npx http-server -p [port]</code></li>
 </ol>
 <hr/>
 <table>
