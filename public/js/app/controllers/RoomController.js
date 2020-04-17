@@ -16,7 +16,7 @@ class RoomController {
 
     getData() {
         let id = window.location.search.split("id=")[1];
-        fetch(this.url)
+        fetch(this.url, { headers: new Headers().set("Content-Security-Policy", "upgrade-insecure-requests") } )
             .then(response => response.json())
             .then(payload => {
                 let room = payload.filter(room => room.id == id).pop();
