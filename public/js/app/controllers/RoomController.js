@@ -25,7 +25,7 @@ class RoomController {
     }
 
     render(room) {
-        console.log(room)
+        //console.log(room)
         let model = new Room(
             room.id,
             room.price,
@@ -36,7 +36,7 @@ class RoomController {
             room.address,
             room.images
         );
-        console.log(model)
+        //console.log(model)
         this.roomView.update(model);
         $('.carousel').carousel()
 

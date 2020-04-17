@@ -83,7 +83,7 @@ class PesquisaController {
             this._filter.usableAreaLabel.textContent = minUsableArea;
             
             this._filter.setElementMinMaxAttrs(minPrice, Helper.getMax(this.data, 'price'),'priceElement')
-            this._filter.setElementMinMaxAttrs(minUsableArea, Helper.getMax(this.data, 'usableArea'), 'usableAreaElemnt');
+            this._filter.setElementMinMaxAttrs(minUsableArea, Helper.getMax(this.data, 'usableArea'), 'usableAreaElement');
         })
     }
 
